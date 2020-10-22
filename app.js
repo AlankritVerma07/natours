@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
@@ -22,6 +23,9 @@ app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 //1)GLOBAL Middle Wares
+//Implement CORS
+app.use(cors()); //-->Access-Control-Allow-Origin *
+app.options('*', cors()); //-->HTTP method for preflight phase(del,update) to implement CORS
 
 //Servin Static Files
 //app.use(express.static(`${__dirname}/public`)); // to open our static files(html,img,etc) from our current directory
