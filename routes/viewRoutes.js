@@ -21,6 +21,7 @@ router.get(
 );
 router.get('/tour/:slug', authController.isLoggedIn, viewsContoller.getTour);
 router.get('/login', authController.isLoggedIn, viewsContoller.getLoginForm);
+router.get('/signup', authController.isLoggedIn, viewsContoller.getSignupForm);
 router.get('/me', authController.protect, viewsContoller.getAccount);
 router.get('/my-tours', authController.protect, viewsContoller.getMyTours);
 
