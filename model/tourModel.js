@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-// const User = require('./userModel');
 //const validator = require('validator');
 
 const tourSchema = new mongoose.Schema(
@@ -188,11 +187,11 @@ tourSchema.pre(/^find/, function (next) {
   this.start = Date.now(); //setting up new property on current query
   next();
 });
-tourSchema.post(/^find/, function (doc, next) {
-  // console.log(`Query took ${Date.now() - this.start}`);
-  //console.log(doc);
-  next();
-});
+// tourSchema.post(/^find/, function (doc, next) {
+//   console.log(`Query took ${Date.now() - this.start}`);
+//   console.log(doc);
+//   next();
+// });
 // tourSchema.pre('aggregate', function (next) {
 //   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
 //   console.log(this.pipeline());

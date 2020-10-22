@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
@@ -73,21 +74,10 @@ app.use(
   })
 );
 
-// app.get('/', (req, res) => {
-//   res
-//     .status(200)
-//     .json({ message: 'hello from server side...', app: 'Natours' });
-// });
-// app.post('/', (req, res) => {
-//   res.send('post something!!');
-// });
+app.use(compression());
+
 //-----------------MIDDLEWARE--------------------
 
-//-----------------TESTING-----------------------
-// app.use((req, res, next) => {
-//   console.log('hello middleware..');
-//   next(); // move to the next middleware
-// });
 //-----------------TESTING-----------------------
 //Test middleware
 app.use((req, res, next) => {
@@ -95,14 +85,6 @@ app.use((req, res, next) => {
   //console.log(req.cookies);
   next();
 });
-
-//-----------------ROUTE HANDLERS--------------------
-
-//  app.get('/api/v1/tours',getAllTours);
-//  app.post('/api/v1/tours', createTour);
-//  app.get('/api/v1/tours/:id',getTour);
-// app.patch('/api/v1/tours/:id', updateTour);
-// app.delete('/api/v1/tours/:id', deleteTour);
 
 //-----------------ROUTES--------------------
 app.use('/', viewRouter);
@@ -120,7 +102,7 @@ app.all('*', (req, res, next) => {
   //------------------------RAW-RESPOPNSE-----------------------------------------
   // res.status(404).json({
   //   status: 'fail',
-  //   message: `Fucked up route request!!.Can't find ${req.originalUrl}`,
+  //   message: `Bad route request!!.Can't find ${req.originalUrl}`,
   // });
   //---------------USING ERROR CLASS BY PASSING next(error)-------------------------
   // const err = new Error(
@@ -129,20 +111,12 @@ app.all('*', (req, res, next) => {
   // err.status = 'fail';
   // err.statusCode = 404;
   //-------------------USING-CUSTOM-MADE-CLASS-------------------------------------
-  next(
-    new AppError(`Fucked up route request!!.Can't find ${req.originalUrl}`, 404)
-  );
+  next(new AppError(`Bad! route request!!.Can't find ${req.originalUrl}`, 404));
 });
-//--------GLOBAL ERROR HANDLER(later exported this to errController/handler)-------
-// app.use((err, req, res, next) => {
-//   err.statusCode = err.statusCode || 500;
-//   err.status = err.status || 'error';
-//   res.status(err.statusCode).json({
-//     status: err.status,
-//     message: err.message,
-//   });
-// });
+
+//--------------------GLOBAL ERROR HANDLER-----------
 app.use(globalErrorHandler);
+
 // all these route have to b used after they are declared
 //----------------START SERVER--------------------
 module.exports = app;

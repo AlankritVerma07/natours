@@ -58,88 +58,15 @@ exports.aliasTopTours = (req, res, next) => {
   next();
 };
 
-// const tours = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
-// );
-//----------------------MIDDLEWARE FOR CHECKING ID------------------------
-// exports.checkId = (req, res, next, val) => {
-//   console.log(`id is ${val}`);
-//   if (req.params.id * 1 > tours.length) {
-//     //Method:1
-//     //if (!tour) {
-//     //Method:2
-//     return res.status(404).json({
-//       //return since we want to exit the func.
-//       status: 404,
-//       message: 'Invalid Id',
-//     });
-//   }
-//   next(); //since we have used 'return' therefore next() will not get executed & we want to come out of the func
-// };
-// exports.checkBody = (req, res, next) => {
-//   if (!req.body.name || !req.body.price) {
-//     return res.status(400).json({
-//       status: 400,
-//       message: 'price and mane not present',
-//     });
-//   }
-// };
 exports.getAllTours = factory.getAll(Tour);
 exports.getTour = factory.getOne(Tour, { path: 'reviews' });
-//----------------------TESTING--------------------------
-// console.log(req.params);
-// const id = req.params.id * 1; //since params id's are in string we need to convert them into int in order to compare ids from json exp:-"4"*1=4
-// const tour = tours.find((el) => el.id === id); //find is amethod on array to check every elelment of array and then makes a new array of the elements which are matched
-
-//  if (id > tours.length)//Method:1
-// if (!tour) {
-//   //Method:2
-//   return res.status(404).json({
-//     //return since we want to exit the func.
-//     status: 404,
-//     message: 'Invalid Id'
-//   });
-// }
-//----------------CATCHASYNC TESTING---------------------------------------
-// const catchAsync = (fn) => {
-//   return (req, res, next) => {
-//     fn(req, res, next).catch(next);-->same as .catch(err=>next(err))
-//   };
-// };
 
 exports.createTour = factory.createOne(Tour);
-//-----------TESTING---------------
-//exports.createTour = (req, res) => {
-//console.log(req.body); //body is available to us since we use middleware
-//res.send('done');
-// const newId = tours[tours.length - 1].id + 1;
-// const newTour = Object.assign({ id: newId }, req.body);
-// tours.push(newTour);
-// fs.writeFile(
-//   `${__dirname}/dev-data/data/tours-simple.json`,
-//   JSON.stringify(tours),
-//   (err) => {
-//     res.status(201).json({
-//       status: 'success',
-//       data: { tour: newTour },
-//     });
-//   }
-// );
-//}
+
 exports.updateTour = factory.updateOne(Tour);
 
 exports.deleteTour = factory.deleteOne(Tour);
-//----------------------Below code has been converted to FACTORY FUNC.-----------------------
-// exports.deleteTour = catchAsync(async (req, res, next) => {
-//   const tour = await Tour.findByIdAndDelete(req.params.id);
-//   if (!tour) {
-//     return next(new AppError('No tour found with I.D', 404));
-//   }
-//   res.status(204).json({
-//     status: 'success',
-//     data: null, //its a common practice not to sent any data in rest api when we delete
-//   });
-// });
+
 exports.getTourStats = catchAsync(async (req, res, next) => {
   const stats = await Tour.aggregate([
     {

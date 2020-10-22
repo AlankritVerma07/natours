@@ -20,7 +20,7 @@ class APIFeatures {
   sort() {
     if (this.queryString.sort) {
       const sortBy = this.queryString.sort.split(',').join(' '); //since in url we cant write space(price ratingsAverage) therefore we need to replace it with(price,ratingsAverage) in url
-      console.log(sortBy);
+      // console.log(sortBy);
       this.query = this.query.sort(sortBy); //instead of query.sort(req.query.sort)
       //sort(price ratingsAverage)
       //sort:-price means dscending ordr
@@ -33,7 +33,7 @@ class APIFeatures {
   limitFields() {
     if (this.queryString.fields) {
       const fields = this.queryString.fields.split(',').join(' ');
-      console.log(fields);
+      // console.log(fields);
       this.query = this.query.select(fields);
     } else {
       this.query = this.query.select('-__v'); //-field will remove the field

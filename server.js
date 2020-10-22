@@ -29,20 +29,7 @@ mongoose
     console.log('db connection success!!');
   });
 //.catch((err) => console.log('error!'));
-//-----------------------------TESTING-----------------------------------
-// const testTour = new Tour({
-//   name: 'A Park Camper',
-//   price: 499,
-// });
-// testTour
-//   .save()
-//   .then((doc) => {
-//     console.log(doc);
-//   })
-//   .catch((err) => {
-//     console.log('Error is:', err);
-//   });
-//-----------------------------TESTING--------------------------------------
+
 //read our files from config.env and save it to node env. variable
 //console.log(process.env);
 
