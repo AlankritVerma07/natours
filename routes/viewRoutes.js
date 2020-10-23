@@ -5,6 +5,8 @@ const authController = require('../controllers/authController');
 
 const router = express.Router();
 
+router.use(viewsContoller.alerts);
+
 // router.use(authController.isLoggedIn);-->since we dont want to do this query-->const freshUser = await User.findById(decoded.id) twice
 
 // router.get('/', (req, res) => {
