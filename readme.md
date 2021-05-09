@@ -80,6 +80,7 @@ Before using the API, you need to set the variables in Postman depending on your
 * Advanced authentication features
   - Signup, confirm user email, login with refresh token, two-factor authentication
 
+
 ## Installation
 You can fork the app or you can git-clone the app into your local machine. Once done that, please install all the
 dependencies by running
