@@ -55,6 +55,7 @@ Before using the API, you need to set the variables in Postman depending on your
   ```
   - {{URL}} with your hostname as value (Eg. http://127.0.0.1:3000 or http://www.example.com)
   - {{password}} with your user password as value.
+   ```
 
 ## Build With
 
@@ -79,5 +80,22 @@ Before using the API, you need to set the variables in Postman depending on your
   - Prevent duplicate bookings after user has booked that exact tour, implement favourite tours
 * Advanced authentication features
   - Signup, confirm user email, login with refresh token, two-factor authentication
+
+## Installation
+You can fork the app or you can git-clone the app into your local machine. Once done that, please install all the
+dependencies by running
+```
+$ npm i
+set your env variables
+$ npm run watch:js
+$ npm run build:js
+$ npm run dev (for development)
+$ npm run start:prod (for production)
+$ npm run debug (for debug)
+$ npm start
+Setting up ESLint and Prettier in VS Code 👇
+$ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node
+eslint-plugin-import eslint-plugin-jsx-a11y  eslint-plugin-react --save-dev
+```
 
 
