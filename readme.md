@@ -1,8 +1,42 @@
+<h1 align="center">
+  <br>
+  <a href="https://natours-footstep.herokuapp.com/"><img src="https://github.com/AlankritVerma07/natours/blob/master/public/img/logo-green-round.png" alt="Natours" width="200"></a>
+  <br>
+  Natours
+  <br>
+</h1>
+
+<h4 align="center">An awesome tour booking site built on top of <a href="https://nodejs.org/en/" target="_blank">NodeJS</a>.</h4>
+
+ <p align="center">
+ <a href="#deployed-version">Demo</a> •
+  <a href="#key-features">Key Features</a> •
+  <a href="#demonstration">Demonstration</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#api-usage">API Usage</a> •
+  <a href="#build-with">Build With</a> •
+  <a href="#to-do">To-do</a> •
+  <a href="#installation">Installation</a> • 
+
+</p>
+
+
 # Natours Application
 Built using modern technologies:mongodb,mongoose & express.
 
 ## Deployed Version
 Live demo (Feel free to visit) 👉 : https://natours-footstep.herokuapp.com/
+
+## Key Features
+
+* Authentication and Authorization
+  - Login and logout
+* Tour
+  - Manage booking, check tours map, check users' reviews and rating
+* User profile
+  - Update username, photo, email, and password
+* Credit card Payment
+
 
 ## Demonstration
 #### Home Page :
