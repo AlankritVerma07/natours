@@ -81,20 +81,3 @@ Before using the API, you need to set the variables in Postman depending on your
   - Signup, confirm user email, login with refresh token, two-factor authentication
 
 
-## Installation
-You can fork the app or you can git-clone the app into your local machine. Once done that, please install all the
-dependencies by running
-```
-$ npm i
-set your env variables
-$ npm run watch:js
-$ npm run build:js
-$ npm run dev (for development)
-$ npm run start:prod (for production)
-$ npm run debug (for debug)
-$ npm start
-Setting up ESLint and Prettier in VS Code 👇
-$ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node
-eslint-plugin-import eslint-plugin-jsx-a11y  eslint-plugin-react --save-dev
-```
-
